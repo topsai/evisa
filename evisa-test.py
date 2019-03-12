@@ -98,5 +98,38 @@ regist_data = {
 url = 'https://www.evisathailand.com/ap-payment/67abdafd4058bafbac0d9fdc5302aaa5a2279202'
 print(url)
 # 访问支付地址
-r = requests.get(url)
-print(r.text)
+# r = requests.get(url)
+# print(r.text)
+# response.xpath('//form/input[@value != ""]')[2].attrib
+from lxml import etree
+
+req = requests.get(url)
+req.encoding = 'utf8'
+# 将request.content 转化为 Element
+root = etree.HTML(req.content)
+# 选取 ol/li/div[@class="item"] 不管它们在文档中的位置
+items = root.xpath('//form/input[@value]')
+# 获取支付参数
+for i in items:
+    tem = i.attrib
+    print("\"" + i.get('name') + "\":\"" + i.get('value') + "\",")
+
+{
+    "merchantId": "991300369",
+    "amount": "525",
+    "orderRef": "VOA2019030102396",
+    "currCode": "764",
+    "successUrl": "https://www.evisathailand.com/ap-success/67abdafd4058bafbac0d9fdc5302aaa5a2279202",
+    "failUrl": "https://www.evisathailand.com/ap-failed/67abdafd4058bafbac0d9fdc5302aaa5a2279202",
+    "cancelUrl": "https://www.evisathailand.com/ap-cancel/67abdafd4058bafbac0d9fdc5302aaa5a2279202",
+    "payType": "N",
+    "lang": "E",
+    "TxType": "Retail",
+    "payMethod": "ALIPAY",
+    "remark": "1|991300379|",
+}
+
+pay_action = "payALIPAYONL.jsp"
+u = "https://paygate.ktc.co.th/ktc/eng/merchandize/payment/payForm.jsp"
+
+u1 = "https://paygate.ktc.co.th/ktc/eng/merchandize/payment/payALIPAYONL.jsp"
