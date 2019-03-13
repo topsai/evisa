@@ -14,6 +14,31 @@ import traceback
 # import urllib2
 import base64
 
+data = {
+    "authority": "公安部出入境管理局",
+    "birth_date": "19831220",
+    "birth_day": "",
+    "birth_place": "陕西",
+    "birth_place_raw": "陕西/SHAANXI",
+    "country": "QKL",
+    "expiry_date": "20200107",
+    "expiry_day": "",
+    "issue_date": "20100108",
+    "issue_place": "陕西",
+    "issue_place_raw": "陕西/SHAANXI",
+    "line0": "PBQKLMUZ<REI<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+    "line1": "G55770289CHN8312206F200107819206101<<<<<<80",
+    "name": "MUZ<REI",
+    "name_cn": "穆锐",
+    "name_cn_raw": "穆/MU锐/RUI",
+    "passport_no": "",
+    "person_id": "",
+    "request_id": "20190313104729_95ec900d65171545982fc4e970500e90",
+    "sex": "F", "src_country": "",
+    "success": "true",
+    "type": "PB"
+}
+
 
 def get_img_base64(img_file):
     with open(img_file, 'rb') as infile:
@@ -49,7 +74,7 @@ def demo():
     app_key = '25820460'
     app_secret = 'f20b7de68e73148d9485368a653dbfa7'
     url = 'http://dm-51.data.aliyun.com/rest/160601/ocr/ocr_idcard.json'
-    img_file = 'pass.jpg'
+    img_file = 'pass1.jpg'
     configure = {'side': 'face'}
     # 如果没有configure字段，configure设为None
     # configure = None

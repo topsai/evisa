@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import requests
 
 
 class ExampleSpider(scrapy.Spider):
