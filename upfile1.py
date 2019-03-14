@@ -33,7 +33,6 @@ def getByte(path):
 
 
 img_str = getByte('timg.jpg')
-
 data = {'dataType': "json", 'passportphoto[]': img_str, }
 m = MultipartEncoder(data)
 # 自动生成Content-Type类型和随机码
