@@ -62,7 +62,7 @@ def predict(url, appcode, img_base64, kv_configure):
 def demo():
     appcode = '080fdbbfde1f4a829ed4988ea90a2fa5'
     url = 'http://ocrhz.market.alicloudapi.com/rest/160601/ocr/ocr_passport.json'
-    img_file = 'fan.jpg'
+    img_file = 'pass1.jpg'
     configure = None
     # configure = {'side': 'face'}
     # 如果没有configure字段，configure设为None
